@@ -15,9 +15,9 @@
 - name: If Sha1
   debug:
     msg: Pending
-  when: "sha1WithRSAEncryption" == sha.stdout
+  when: '"sha1WithRSAEncryption" in sha.stdout'
 
 - name: If Sha2
   debug:
     msg: Issues Certificate on Microsoft CA (2012)
-  when: "sha256WithRSAEncryption" == sha.stdout
+  when: '"sha256WithRSAEncryption" in sha.stdout'
