@@ -1,5 +1,8 @@
+- name: Copy ca os local to docker contrainer
+  shell: "docker cp /root/ca/{{ ca_name }} awx_task:/var/tmp/ca/{{ ca_name }}"
+
 - name: Check CA
-  shell: "openssl req -noout -text -in {{ ca_path }} | grep 'Signature Algorithm'"
+  shell: "openssl req -noout -text -in /var/tmp/ca/{{ ca_name }} | grep 'Signature Algorithm'"
   register: result
 
 - name: If Sha1
