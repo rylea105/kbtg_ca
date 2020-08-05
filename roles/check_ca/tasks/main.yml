@@ -14,12 +14,10 @@
 
 - name: If Sha1
   debug:
-    msg: "Pending"
-  when: "'sha1WithRSAEncryption' == {{ sha.stdout }}"
-  ignore_errors: yes
+    msg: Pending
+  when: "sha1WithRSAEncryption" == sha.stdout
 
 - name: If Sha2
   debug:
-    msg: "Issues Certificate on Microsoft CA (2012)"
-  when: "'sha256WithRSAEncryption' == {{ sha.stdout }}"
-  ignore_errors: yes
+    msg: Issues Certificate on Microsoft CA (2012)
+  when: "sha256WithRSAEncryption" == sha.stdout
