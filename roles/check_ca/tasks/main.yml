@@ -16,8 +16,10 @@
   debug:
     msg: Pending
   when: "'sha1' in {{ result.stdout }}"
+  ignore_errors: yes
 
 - name: If Sha2
   debug:
     msg: Issues Certificate on Microsoft CA (2012)
   when: "'sha256' in {{ result.stdout }}"
+  ignore_errors: yes
