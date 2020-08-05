@@ -1,15 +1,15 @@
-- name: Create a directory if it does not exist
-  file:
-    path: /var/tmp/ca/
-    state: directory
-    mode: '0755'
+# - name: Create a directory if it does not exist
+#   file:
+#     path: /var/tmp/ca/
+#     state: directory
+#     mode: '0755'
 
-- name: Copy ca os local to docker contrainer
-  shell: "docker cp /root/ca/{{ ca_name }} awx_task:/var/tmp/ca/{{ ca_name }}"
-  delegate_to: awx
+# - name: Copy ca os local to docker contrainer
+#   shell: "docker cp /root/ca/{{ ca_name }} awx_task:/var/tmp/ca/{{ ca_name }}"
+#   delegate_to: awx
 
 - name: Check CA
-  shell: "openssl req -noout -text -in /var/tmp/ca/{{ ca_name }} | grep 'Signature Algorithm'"
+  shell: "openssl req -noout -text -in /root/ca/{{ ca_name }} | grep 'Signature Algorithm'"
   register: result
 
 - name: If Sha1

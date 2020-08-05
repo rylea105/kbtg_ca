@@ -1,5 +1,5 @@
 - name: Check CA Type
-  hosts: localhost
+  hosts: awx
   gather_facts: yes
   roles:
     - check_ca
