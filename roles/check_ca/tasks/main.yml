@@ -1,0 +1,13 @@
+- name: Check CA
+  shell: "openssl req -noout -text -in {{ ca_path }} | grep 'Signature Algorithm'"
+  register: result
+
+- name: If Sha1
+  debug:
+    msg: Pending
+  when: "'sha1' in {{ result.stdout }}"
+
+- name: If Sha2
+  debug:
+    msg: Issues Certificate on Microsoft CA (2012)
+  when: "'sha256' in {{ result.stdout }}"

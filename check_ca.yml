@@ -1,0 +1,5 @@
+- name: Check CA Type
+  hosts: localhost
+  gather_facts: yes
+  roles:
+    - check_ca
